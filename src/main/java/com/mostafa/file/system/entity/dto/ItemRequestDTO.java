@@ -13,7 +13,6 @@ public class ItemRequestDTO {
     private Long id;
     @NotNull
     private String userEmail;
-    @NotNull
     private ItemType type;
     @NotNull
     private String name;

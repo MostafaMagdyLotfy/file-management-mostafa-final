@@ -1,0 +1,25 @@
+public static String reverseStringInsideParentheses(String inputString) {
+        Stack<Character> stack = new Stack<>();
+        for (char c : inputString.toCharArray()) {
+            if (c == ')') {
+                StringBuilder stringBuilder = new StringBuilder();
+                while (!stack.isEmpty() && stack.peek() != '(') {
+                    stringBuilder.append(stack.pop());
+                }
+                // stack.pop();
+                while (!stringBuilder.isEmpty()) {
+                    stack.add(stringBuilder.charAt(0));
+                    stringBuilder.deleteCharAt(0);
+                }
+                stack.add(c);
+            } else {
+                stack.add(c);
+            }
+        }
+
+        StringBuilder answer = new StringBuilder();
+        while (!stack.isEmpty()) {
+            answer.append(stack.pop());
+        }
+        return answer.reverse().toString();
+    }
