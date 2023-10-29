@@ -1,14 +1,14 @@
-DROP SCHEMA IF EXISTS file_management;
+DROP SCHEMA IF EXISTS file_management CASCADE;
 CREATE SCHEMA file_management;
 
-DROP TYPE IF EXISTS permission_level;
-CREATE TYPE file_management.permission_level AS ENUM (
+DROP TYPE IF EXISTS permission_level CASCADE;
+CREATE TYPE permission_level AS ENUM (
     'VIEW',
     'EDIT'
     );
 
-DROP TYPE IF EXISTS type_enum;
-CREATE TYPE file_management.type_enum AS ENUM (
+DROP TYPE IF EXISTS type_enum CASCADE;
+CREATE TYPE type_enum AS ENUM (
     'Space',
     'Folder',
     'File'
@@ -36,9 +36,9 @@ ALTER TABLE file_management.files
 DROP TABLE IF EXISTS file_management.items CASCADE;
 CREATE TABLE file_management.items
 (
-    id                  bigint                    NOT NULL,
-    type                file_management.type_enum NOT NULL,
-    name                character varying         NOT NULL,
+    id                  bigint            NOT NULL,
+    type                type_enum         NOT NULL,
+    name                character varying NOT NULL,
     permission_group_id bigint,
     parent_item_id      bigint
 );
@@ -79,9 +79,9 @@ ALTER TABLE file_management.permission_groups
 DROP TABLE IF EXISTS file_management.permissions CASCADE;
 CREATE TABLE file_management.permissions
 (
-    id               bigint                           NOT NULL,
-    user_email       character varying                NOT NULL,
-    permission_level file_management.permission_level NOT NULL,
+    id               bigint            NOT NULL,
+    user_email       character varying NOT NULL,
+    permission_level permission_level  NOT NULL,
     group_id         bigint
 );
 
