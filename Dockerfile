@@ -12,3 +12,5 @@ EXPOSE 8080
 
 # Define the command to run your Spring Boot application
 CMD ["java", "-jar", "app.jar"]
+
+#Command: docker build -t com.mostafa/mostafa.assessment:0.0.1-SNAPSHOT .
