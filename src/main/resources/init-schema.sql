@@ -1,18 +1,6 @@
 DROP SCHEMA IF EXISTS file_management CASCADE;
 CREATE SCHEMA file_management;
 
-DROP TYPE IF EXISTS permission_level CASCADE;
-CREATE TYPE permission_level AS ENUM (
-    'VIEW',
-    'EDIT'
-    );
-
-DROP TYPE IF EXISTS type_enum CASCADE;
-CREATE TYPE type_enum AS ENUM (
-    'Space',
-    'Folder',
-    'File'
-    );
 
 DROP TABLE IF EXISTS file_management.files CASCADE;
 CREATE TABLE file_management.files
@@ -32,6 +20,14 @@ ALTER TABLE file_management.files
         NO MAXVALUE
         CACHE 1
         );
+
+DROP TYPE IF EXISTS type_enum;
+CREATE TYPE type_enum AS ENUM (
+    'Space',
+    'Folder',
+    'File'
+    );
+CREATE CAST (varchar AS type_enum) WITH INOUT AS IMPLICIT;
 
 DROP TABLE IF EXISTS file_management.items CASCADE;
 CREATE TABLE file_management.items
@@ -75,6 +71,13 @@ ALTER TABLE file_management.permission_groups
         CACHE 1
         );
 
+DROP TYPE IF EXISTS permission_level;
+CREATE TYPE permission_level AS ENUM (
+    'VIEW',
+    'EDIT'
+    );
+
+CREATE CAST (varchar AS permission_level) WITH INOUT AS IMPLICIT;
 
 DROP TABLE IF EXISTS file_management.permissions CASCADE;
 CREATE TABLE file_management.permissions
