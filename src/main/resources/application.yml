@@ -8,16 +8,18 @@ spring:
   jpa:
     show-sql: true
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres?currentSchema=file_management
     username: postgres
     password: admin
     driver-class-name: org.postgresql.Driver
-  sql:
-    init:
-      mode: ALWAYS
-      schema-locations: classpath:init-schema.sql,classpath:init-data.sql
-      platform: postgres
+#  sql:
+#    init:
+#      mode: ALWAYS
+#      schema-locations: classpath:init-schema.sql,classpath:init-data.sql
+#      platform: postgres
 server:
   servlet:
     context-path: '/api'

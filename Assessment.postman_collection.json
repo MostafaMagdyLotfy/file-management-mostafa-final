@@ -1,0 +1,335 @@
+{
+	"info": {
+		"_postman_id": "a8680bf5-9a1e-4431-855c-38127a96c25f",
+		"name": "Assessment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29898055"
+	},
+	"item": [
+		{
+			"name": "Create space",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userEmail\":\"admin_edit@gmail.com\",\r\n    \"name\":\"test\",\r\n    \"permissionGroup\":1,\r\n    \"parentItem\":5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/items/space",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"items",
+						"space"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create folder",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userEmail\":\"admin_edit@gmail.com\",\r\n    \"name\":\"backend\",\r\n    \"permissionGroup\":1,\r\n    \"parentItem\":5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/items/folder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"items",
+						"folder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload an item with a file",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/D:/Keyboard disable-enable.txt"
+						},
+						{
+							"key": "userEmail",
+							"value": "admin_edit@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "permissionGroup",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "parentItem",
+							"value": "8",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/items/file/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"items",
+						"file",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Download the file of an item",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "userEmail",
+							"value": "admin_view@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/items/file/download/17",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"items",
+						"file",
+						"download",
+						"17"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all items",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get item",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/items/17",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"items",
+						"17"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create permission group",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"groupName\":\"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/permission-groups",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"permission-groups"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all permission groups",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/permission-groups",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"permission-groups"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create permission",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userEmail\": \"admin_edit@gmail.com\",\r\n    \"permissionLevel\": \"EDIT\",\r\n    \"group\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/permissions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"permissions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all permissions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/permissions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"permissions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload a file",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/D:/Keyboard disable-enable.txt"
+						},
+						{
+							"key": "item",
+							"value": "5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/files/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"files",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

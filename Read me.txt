@@ -1,3 +1,5 @@
 To run this application just execute:
 1- mvn clean install
 2- docker-compose up
+
+I have exported the REST request in Assessment.postman_collection so you can import them and try the requests yourself
