@@ -1,0 +1,37 @@
+version: "3"
+services:
+  springBootApp:
+    image: com.mostafa/mostafa.assessment:0.0.1-SNAPSHOT
+    container_name: assessment-app
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-assessment-db:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=root
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    ports:
+      - "8081:8081"
+    networks:
+      - network
+    depends_on:
+      - postgresDb
+    restart: on-failure
+
+  postgresDb:
+    image: postgres:16.0-alpine
+    container_name: postgres-assessment-db
+    ports:
+      - "5434:5432"
+    networks:
+      - network
+    volumes:
+      - volume:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=public
+
+networks:
+  network:
+
+volumes:
+  volume:
