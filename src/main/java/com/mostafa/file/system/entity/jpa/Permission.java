@@ -22,7 +22,7 @@ public class Permission implements Serializable {
     @Column(name = "id")
     private Long id;
     @NotNull
-    @Column(name = "user_email")
+    @Column(name = "user_email", unique = true)
     private String userEmail;
     @NotNull
     @Column(name = "permission_level")
