@@ -5,7 +5,6 @@ import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.ValidationException;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -17,7 +16,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @ControllerAdvice
-@Order(Ordered.LOWEST_PRECEDENCE)
+@Order(5)
 public class GlobalExceptionHandler {
 
     @ResponseBody

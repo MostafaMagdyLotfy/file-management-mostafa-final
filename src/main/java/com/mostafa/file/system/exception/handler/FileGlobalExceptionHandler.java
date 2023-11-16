@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Slf4j
 @ControllerAdvice
 @Order(2)
-public class FileGlobalExceptionHandler extends GlobalExceptionHandler {
+public class FileGlobalExceptionHandler {
 
     @ResponseBody
     @ExceptionHandler(value = {FileDomainException.class})

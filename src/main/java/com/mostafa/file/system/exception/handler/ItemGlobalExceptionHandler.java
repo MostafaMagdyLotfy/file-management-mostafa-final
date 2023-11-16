@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Slf4j
 @ControllerAdvice
 @Order(1)
-public class ItemGlobalExceptionHandler extends GlobalExceptionHandler {
+public class ItemGlobalExceptionHandler {
 
     @ResponseBody
     @ExceptionHandler(value = {ItemDomainException.class})

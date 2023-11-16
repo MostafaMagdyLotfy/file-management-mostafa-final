@@ -1,5 +1,5 @@
 To run this application just execute:
-1- mvn clean install
+1- docker build -t com.mostafa/mostafa.assessment:0.0.1-SNAPSHOT .
 2- docker-compose up
 
-I have exported the REST request in Assessment.postman_collection so you can import them and try the requests yourself
+I have exported the postman REST requests in Assessment.postman_collection so you can import them and try the requests yourself

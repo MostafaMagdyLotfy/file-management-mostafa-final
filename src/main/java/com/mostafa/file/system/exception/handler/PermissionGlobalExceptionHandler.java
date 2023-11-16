@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Slf4j
 @ControllerAdvice
 @Order(3)
-public class PermissionGlobalExceptionHandler extends GlobalExceptionHandler {
+public class PermissionGlobalExceptionHandler {
 
     @ResponseBody
     @ExceptionHandler(value = {PermissionDomainException.class})
